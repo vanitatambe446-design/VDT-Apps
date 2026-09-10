@@ -1,1 +1,1445 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Computer Science Skills | VDT Apps</title>
+
+<meta name="description"
+      content="Computer Science Skills by VDT Apps. Learn computer science step by step with a free Android application.">
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7faff;
+    color: #183153;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(255,255,255,0.97);
+
+    border-bottom: 1px solid #e8edf5;
+
+    backdrop-filter: blur(10px);
+}
+
+.navbar {
+    max-width: 1250px;
+    min-height: 76px;
+
+    margin: auto;
+    padding: 12px 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+
+    line-height: 1;
+
+    min-width: 190px;
+}
+
+.logo-main {
+    font-size: 31px;
+    font-weight: 900;
+
+    letter-spacing: -1.5px;
+}
+
+.logo-main .v {
+    color: #1769ff;
+}
+
+.logo-main .d {
+    color: #ef3d8f;
+}
+
+.logo-main .t {
+    color: #f6a623;
+}
+
+.logo-main .apps {
+    color: #183153;
+}
+
+.logo-tagline {
+    margin-top: 5px;
+
+    font-size: 10px;
+    letter-spacing: 3px;
+
+    color: #71809a;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+
+    gap: 25px;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.nav-links a:hover {
+    color: #087cf5;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.icon-button {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    border: 1px solid #e3eaf4;
+
+    background: #f8fbff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 19px;
+}
+
+.login {
+    font-weight: 700;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    background:
+        radial-gradient(
+            circle at 80% 30%,
+            #ffe8f2 0,
+            transparent 27%
+        ),
+
+        radial-gradient(
+            circle at 20% 40%,
+            #dff4ff 0,
+            transparent 32%
+        ),
+
+        linear-gradient(
+            135deg,
+            #f7fbff,
+            #ffffff 55%,
+            #fff8fb
+        );
+}
+
+.hero-container {
+    max-width: 1250px;
+
+    margin: auto;
+
+    min-height: 560px;
+
+    padding: 65px 30px 50px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 40px;
+}
+
+.hero-content h1 {
+    font-size: clamp(42px,5vw,68px);
+
+    line-height: 1.02;
+
+    letter-spacing: -2.5px;
+
+    color: #132b4f;
+
+    margin-bottom: 22px;
+}
+
+.gradient-text {
+    background:
+        linear-gradient(
+            90deg,
+            #1769ff,
+            #d642ce,
+            #ef477c
+        );
+
+    -webkit-background-clip: text;
+
+    color: transparent;
+}
+
+.hero-content p {
+    max-width: 590px;
+
+    font-size: 18px;
+
+    color: #52627a;
+
+    margin-bottom: 27px;
+}
+
+.hero-buttons {
+    display: flex;
+
+    gap: 13px;
+
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 50px;
+
+    padding: 0 25px;
+
+    border-radius: 11px;
+
+    font-weight: 700;
+
+    transition: .2s;
+}
+
+.btn-primary {
+    background: #087cf5;
+
+    color: white;
+
+    box-shadow:
+        0 8px 22px rgba(8,124,245,.20);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+
+    background: #006ce0;
+}
+
+.btn-outline {
+    background: white;
+
+    border: 2px solid #8063ff;
+
+    color: #6346db;
+}
+
+.btn-outline:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   BENEFITS
+========================= */
+
+.benefits-mini {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 23px;
+
+    margin-top: 31px;
+}
+
+.mini-benefit {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    color: #465875;
+}
+
+.mini-icon {
+    font-size: 21px;
+}
+
+
+/* =========================
+   HERO VISUAL
+========================= */
+
+.hero-visual {
+    position: relative;
+
+    min-height: 410px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+.computer-card {
+    width: 410px;
+    height: 360px;
+
+    max-width: 90%;
+
+    border-radius: 35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #dff5ff,
+            #fff0f7
+        );
+
+    position: relative;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 25px 60px rgba(30,80,130,.14);
+}
+
+.screen {
+    position: absolute;
+
+    width: 285px;
+    height: 205px;
+
+    left: 50%;
+    top: 75px;
+
+    transform: translateX(-50%);
+
+    background: #263f62;
+
+    border-radius: 15px;
+
+    border: 8px solid #4b5666;
+
+    box-shadow:
+        0 15px 30px rgba(0,0,0,.18);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: white;
+
+    text-align: center;
+
+    font-size: 24px;
+
+    font-weight: 800;
+}
+
+.keyboard {
+    position: absolute;
+
+    width: 330px;
+    height: 55px;
+
+    left: 50%;
+
+    bottom: 45px;
+
+    transform: translateX(-50%);
+
+    background: #596575;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 10px 20px rgba(0,0,0,.15);
+}
+
+.code-symbol {
+    position: absolute;
+
+    font-size: 30px;
+
+    font-weight: 900;
+
+    color: #1769ff;
+}
+
+.symbol-one {
+    left: 35px;
+    top: 35px;
+}
+
+.symbol-two {
+    right: 35px;
+    top: 50px;
+
+    color: #ef3d8f;
+}
+
+.symbol-three {
+    left: 55px;
+    bottom: 75px;
+
+    color: #f6a623;
+}
+
+.symbol-four {
+    right: 55px;
+    bottom: 75px;
+
+    color: #27bd6b;
+}
+
+.visual-note {
+    position: absolute;
+
+    left: 25px;
+    top: 15px;
+
+    font-family: cursive;
+
+    font-size: 18px;
+
+    color: #42658a;
+
+    transform: rotate(-7deg);
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.section {
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding: 55px 24px;
+}
+
+.section-heading {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+}
+
+.section-heading h2 {
+    font-size: 29px;
+
+    letter-spacing: -.6px;
+}
+
+
+/* =========================
+   APP CARD
+========================= */
+
+.app-area {
+    display: flex;
+
+    justify-content: center;
+}
+
+.app-card {
+    width: 100%;
+
+    max-width: 600px;
+
+    background: white;
+
+    border: 1px solid #e7edf5;
+
+    border-radius: 24px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    box-shadow:
+        0 12px 35px rgba(34,64,100,.07);
+
+    transition: .2s;
+}
+
+.app-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 18px 40px rgba(34,64,100,.12);
+}
+
+.app-icon {
+    width: 105px;
+    height: 105px;
+
+    margin: 0 auto 18px;
+
+    border-radius: 26px;
+
+    background: #d8efff;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 55px;
+}
+
+.app-card h3 {
+    font-size: 25px;
+
+    margin-bottom: 10px;
+
+    color: #172f51;
+}
+
+.app-card p {
+    color: #66758b;
+
+    font-size: 15px;
+
+    margin-bottom: 20px;
+}
+
+.free-badge {
+    display: inline-block;
+
+    background: #dff7e7;
+
+    color: #139653;
+
+    border-radius: 20px;
+
+    padding: 7px 18px;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    margin-bottom: 20px;
+}
+
+.small-btn {
+    width: 100%;
+
+    min-height: 48px;
+
+    border-radius: 10px;
+
+    background: #087cf5;
+
+    color: white;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-weight: 800;
+
+    transition: .2s;
+}
+
+.small-btn:hover {
+    background: #006ce0;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-box {
+    max-width: 850px;
+
+    margin: auto;
+
+    text-align: center;
+}
+
+.about-box p {
+    color: #66758b;
+
+    font-size: 16px;
+}
+
+
+/* =========================
+   TRUST
+========================= */
+
+.trust {
+    max-width: 1180px;
+
+    margin: 10px auto 55px;
+
+    padding: 23px;
+
+    background: #f5faff;
+
+    border: 1px solid #e5effa;
+
+    border-radius: 17px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 20px;
+}
+
+.trust-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.trust-icon {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    background: #087cf5;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+
+    flex-shrink: 0;
+}
+
+.trust-item strong {
+    display: block;
+
+    font-size: 13px;
+}
+
+.trust-item span {
+    color: #738197;
+
+    font-size: 11px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #122e50;
+
+    color: white;
+}
+
+.footer-main {
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding: 50px 24px 35px;
+
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr;
+
+    gap: 40px;
+}
+
+.footer-logo {
+    font-size: 29px;
+
+    font-weight: 900;
+
+    margin-bottom: 9px;
+}
+
+.footer-about {
+    color: #b9c7d9;
+
+    font-size: 13px;
+
+    max-width: 330px;
+}
+
+.footer-column h4 {
+    margin-bottom: 14px;
+
+    font-size: 15px;
+}
+
+.footer-column a {
+    display: block;
+
+    color: #c4d0df;
+
+    font-size: 13px;
+
+    margin-bottom: 9px;
+}
+
+.footer-column a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    border-top:
+        1px solid rgba(255,255,255,.13);
+
+    padding: 17px 24px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    color: #aebed2;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1000px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+    }
+
+    .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons,
+    .benefits-mini {
+        justify-content: center;
+    }
+
+    .trust {
+        grid-template-columns:
+            repeat(2,1fr);
+
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .footer-main {
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px) {
+
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    .logo-main {
+        font-size: 25px;
+    }
+
+    .logo-tagline {
+        font-size: 8px;
+    }
+
+    .login {
+        display: none;
+    }
+
+    .hero-container {
+        padding: 45px 18px 35px;
+    }
+
+    .hero-content h1 {
+        font-size: 43px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .hero-visual {
+        min-height: 350px;
+    }
+
+    .computer-card {
+        width: 340px;
+        height: 310px;
+    }
+
+    .screen {
+        width: 245px;
+        height: 170px;
+    }
+
+    .keyboard {
+        width: 275px;
+    }
+
+    .section {
+        padding: 40px 15px;
+    }
+
+    .trust {
+        grid-template-columns: 1fr;
+
+        margin:
+            0 15px 35px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+
+        padding:
+            40px 20px 25px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+
+        padding: 17px 20px;
+    }
+
+    .app-card {
+        padding: 25px 18px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+<nav class="navbar">
+
+
+<a href="index.html" class="logo">
+
+<div class="logo-main">
+
+<span class="v">V</span>
+<span class="d">D</span>
+<span class="t">T</span>
+<span class="apps"> Apps</span>
+
+</div>
+
+<div class="logo-tagline">
+Learn • Explore • Grow
+</div>
+
+</a>
+
+
+<div class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="#app">
+Computer Science Skills
+</a>
+
+<a href="#about">
+About
+</a>
+
+<a href="#support">
+Support
+</a>
+
+<a href="#contact">
+Contact
+</a>
+
+</div>
+
+
+<div class="nav-actions">
+
+<div class="icon-button">
+⌕
+</div>
+
+<div class="icon-button">
+💻
+</div>
+
+</div>
+
+</nav>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+<div class="hero-container">
+
+
+<div class="hero-content">
+
+<h1>
+
+Learn Computer Science
+for a
+
+<span class="gradient-text">
+Brighter Future
+</span>
+
+</h1>
+
+
+<p>
+
+Computer Science Skills helps learners
+understand computers, logic, algorithms,
+programming, data, networks, web development,
+app development and artificial intelligence.
+
+</p>
+
+
+<div class="hero-buttons">
+
+<a href="#app"
+   class="btn btn-primary">
+
+Explore the App&nbsp; →
+
+</a>
+
+
+<a href="#about"
+   class="btn btn-outline">
+
+About VDT Apps
+
+</a>
+
+</div>
+
+
+<div class="benefits-mini">
+
+
+<div class="mini-benefit">
+
+<span class="mini-icon">
+🛡️
+</span>
+
+<span>
+Safe & Secure<br>
+Download
+</span>
+
+</div>
+
+
+<div class="mini-benefit">
+
+<span class="mini-icon">
+🎓
+</span>
+
+<span>
+Learn Step<br>
+by Step
+</span>
+
+</div>
+
+
+<div class="mini-benefit">
+
+<span class="mini-icon">
+💻
+</span>
+
+<span>
+Computer<br>
+Science
+</span>
+
+</div>
+
+
+<div class="mini-benefit">
+
+<span class="mini-icon">
+❤️
+</span>
+
+<span>
+Learn, Grow<br>
+and Achieve
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- VISUAL -->
+
+<div class="hero-visual">
+
+<div class="computer-card">
+
+
+<div class="visual-note">
+
+Learn<br>
+Computer Science!
+
+</div>
+
+
+<div class="code-symbol symbol-one">
+&lt;/&gt;
+</div>
+
+<div class="code-symbol symbol-two">
+{}
+</div>
+
+<div class="code-symbol symbol-three">
+#
+</div>
+
+<div class="code-symbol symbol-four">
+AI
+</div>
+
+
+<div class="screen">
+
+Computer<br>
+Science<br>
+Skills
+
+</div>
+
+
+<div class="keyboard"></div>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     APP
+========================= -->
+
+<section class="section"
+         id="app">
+
+
+<div class="section-heading">
+
+<h2>
+Computer Science Skills
+</h2>
+
+</div>
+
+
+<div class="app-area">
+
+
+<div class="app-card">
+
+
+<div class="app-icon">
+💻
+</div>
+
+
+<h3>
+Computer Science Skills
+</h3>
+
+
+<p>
+
+Learn computer science concepts
+step by step through structured
+lessons and practical explanations.
+
+</p>
+
+
+<div class="free-badge">
+FREE
+</div>
+
+
+<a href="app-details.html?app=computer"
+   class="small-btn">
+
+View App Details
+
+</a>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="section"
+         id="about">
+
+
+<div class="about-box">
+
+
+<div class="section-heading">
+
+<h2>
+About VDT Apps
+</h2>
+
+</div>
+
+
+<p>
+
+VDT Apps creates useful and engaging
+applications designed to help people learn,
+explore, work and grow.
+
+Our first and featured application is
+<strong>Computer Science Skills</strong>,
+a free educational Android application
+created to make computer science easier
+to understand.
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     TRUST
+========================= -->
+
+<div class="trust">
+
+
+<div class="trust-item">
+
+<div class="trust-icon">
+↓
+</div>
+
+<div>
+
+<strong>
+Free Download
+</strong>
+
+<span>
+Get the Computer Science app free.
+</span>
+
+</div>
+
+</div>
+
+
+<div class="trust-item">
+
+<div class="trust-icon">
+🔒
+</div>
+
+<div>
+
+<strong>
+Safe & Secure
+</strong>
+
+<span>
+Download from VDT Apps.
+</span>
+
+</div>
+
+</div>
+
+
+<div class="trust-item">
+
+<div class="trust-icon">
+🎓
+</div>
+
+<div>
+
+<strong>
+Educational
+</strong>
+
+<span>
+Structured computer science learning.
+</span>
+
+</div>
+
+</div>
+
+
+<div class="trust-item">
+
+<div class="trust-icon">
+★
+</div>
+
+<div>
+
+<strong>
+Quality Learning
+</strong>
+
+<span>
+Designed for learners.
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+
+<div class="footer-main">
+
+
+<div>
+
+<div class="footer-logo">
+VDT Apps
+</div>
+
+
+<p class="footer-about">
+
+Learn · Explore · Grow
+
+<br><br>
+
+Computer Science Skills is a free
+educational application designed
+to help learners understand
+computer science step by step.
+
+</p>
+
+</div>
+
+
+<div class="footer-column">
+
+<h4>
+Quick Links
+</h4>
+
+<a href="index.html">
+Home
+</a>
+
+<a href="#app">
+Computer Science Skills
+</a>
+
+<a href="#about">
+About Us
+</a>
+
+</div>
+
+
+<div class="footer-column"
+     id="support">
+
+<h4>
+Support
+</h4>
+
+<a href="#">
+Help Center
+</a>
+
+<a href="#">
+Privacy Policy
+</a>
+
+<a href="#">
+Terms & Conditions
+</a>
+
+<a href="#">
+Contact Us
+</a>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+<span>
+© 2026 VDT Apps. All rights reserved.
+</span>
+
+<span>
+Made with ❤️ for a brighter tomorrow.
+</span>
+
+</div>
+
+</footer>
+
+
+</body>
+</html>
