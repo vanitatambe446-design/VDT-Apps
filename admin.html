@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Admin Panel | VDT Apps</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #eef2ff,
+                    #f8fafc,
+                    #ede9fe
+                );
+
+            color: #111827;
+        }
+
+
+        /* =========================
+           LOGIN
+        ========================= */
+
+        .login-screen {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 420px;
+
+            background: white;
+
+            border-radius: 22px;
+
+            padding: 35px;
+
+            box-shadow:
+                0 25px 70px
+                rgba(15, 23, 42, 0.12);
+
+            border:
+                1px solid #e5e7eb;
+
+            text-align: center;
+        }
+
+        .logo {
+            width: 65px;
+            height: 65px;
+
+            margin: 0 auto 18px;
+
+            border-radius: 18px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #6366f1,
+                    #8b5cf6
+                );
+
+            color: white;
+
+            font-size: 28px;
+            font-weight: 900;
+
+            box-shadow:
+                0 10px 25px
+                rgba(99, 102, 241, 0.25);
+        }
+
+        .login-card h1 {
+            font-size: 27px;
+            margin-bottom: 7px;
+        }
+
+        .login-card p {
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .input {
+            width: 100%;
+
+            padding: 14px 15px;
+
+            border:
+                1px solid #dbe2ea;
+
+            border-radius: 10px;
+
+            font-size: 15px;
+
+            outline: none;
+
+            margin-bottom: 12px;
+        }
+
+        .input:focus {
+            border-color: #6366f1;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(99, 102, 241, 0.10);
+        }
+
+        .login-button {
+            width: 100%;
+
+            border: none;
+
+            padding: 14px;
+
+            border-radius: 10px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #4f46e5,
+                    #7c3aed
+                );
+
+            color: white;
+
+            font-size: 15px;
+            font-weight: 800;
+
+            cursor: pointer;
+        }
+
+        .login-button:hover {
+            opacity: 0.93;
+        }
+
+        .error {
+            color: #dc2626;
+
+            font-size: 13px;
+
+            margin-top: 12px;
+
+            display: none;
+        }
+
+
+        /* =========================
+           ADMIN PANEL
+        ========================= */
+
+        .admin-panel {
+            display: none;
+
+            min-height: 100vh;
+        }
+
+        .topbar {
+            background: white;
+
+            border-bottom:
+                1px solid #e5e7eb;
+
+            padding: 15px 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+        .top-brand {
+            display: flex;
+            align-items: center;
+
+            gap: 11px;
+        }
+
+        .small-logo {
+            width: 42px;
+            height: 42px;
+
+            border-radius: 12px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #6366f1,
+                    #8b5cf6
+                );
+
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-weight: 900;
+        }
+
+        .top-brand h2 {
+            font-size: 18px;
+        }
+
+        .top-brand span {
+            display: block;
+
+            font-size: 11px;
+
+            color: #64748b;
+        }
+
+        .logout-button {
+            border: 1px solid #e5e7eb;
+
+            background: white;
+
+            color: #374151;
+
+            padding: 9px 14px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-weight: 700;
+        }
+
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .content {
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding: 35px 20px 60px;
+        }
+
+        .welcome {
+            margin-bottom: 28px;
+        }
+
+        .welcome h1 {
+            font-size: 32px;
+
+            margin-bottom: 5px;
+        }
+
+        .welcome p {
+            color: #64748b;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           DASHBOARD CARDS
+        ========================= */
+
+        .dashboard-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+
+            margin-bottom: 30px;
+        }
+
+        .dashboard-card {
+            background: white;
+
+            border:
+                1px solid #e5e7eb;
+
+            border-radius: 16px;
+
+            padding: 22px;
+
+            box-shadow:
+                0 8px 25px
+                rgba(15, 23, 42, 0.04);
+        }
+
+        .dashboard-card .number {
+            font-size: 28px;
+
+            font-weight: 900;
+
+            color: #4f46e5;
+
+            margin-bottom: 4px;
+        }
+
+        .dashboard-card .label {
+            color: #64748b;
+
+            font-size: 13px;
+
+            font-weight: 700;
+        }
+
+
+        /* =========================
+           UPLOAD SECTION
+        ========================= */
+
+        .section {
+            background: white;
+
+            border:
+                1px solid #e5e7eb;
+
+            border-radius: 18px;
+
+            padding: 27px;
+
+            margin-bottom: 22px;
+
+            box-shadow:
+                0 8px 25px
+                rgba(15, 23, 42, 0.04);
+        }
+
+        .section h2 {
+            font-size: 21px;
+
+            margin-bottom: 6px;
+        }
+
+        .section-description {
+            color: #64748b;
+
+            font-size: 13px;
+
+            margin-bottom: 22px;
+        }
+
+        .form-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 16px;
+        }
+
+        .form-group {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 6px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-size: 12px;
+
+            font-weight: 800;
+
+            color: #374151;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+
+            border:
+                1px solid #dbe2ea;
+
+            border-radius: 9px;
+
+            padding: 12px;
+
+            font-family: inherit;
+
+            font-size: 14px;
+
+            outline: none;
+        }
+
+        textarea {
+            min-height: 110px;
+
+            resize: vertical;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: #6366f1;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(99, 102, 241, 0.08);
+        }
+
+        .upload-area {
+            border:
+                2px dashed #cbd5e1;
+
+            border-radius: 13px;
+
+            padding: 25px;
+
+            text-align: center;
+
+            background: #f8fafc;
+        }
+
+        .upload-area strong {
+            display: block;
+
+            margin-bottom: 5px;
+        }
+
+        .upload-area span {
+            color: #64748b;
+
+            font-size: 12px;
+        }
+
+        .upload-area input {
+            margin-top: 15px;
+
+            border: none;
+
+            background: transparent;
+        }
+
+        .publish-button {
+            margin-top: 22px;
+
+            padding: 13px 22px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #16a34a,
+                    #15803d
+                );
+
+            color: white;
+
+            font-weight: 800;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           APP STATUS
+        ========================= */
+
+        .app-row {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 17px 0;
+
+            border-bottom:
+                1px solid #eef2f7;
+        }
+
+        .app-row:last-child {
+            border-bottom: none;
+        }
+
+        .app-name {
+            font-weight: 800;
+
+            font-size: 15px;
+        }
+
+        .app-meta {
+            color: #64748b;
+
+            font-size: 12px;
+        }
+
+        .status {
+            padding: 5px 9px;
+
+            border-radius: 6px;
+
+            background: #dcfce7;
+
+            color: #166534;
+
+            font-size: 11px;
+
+            font-weight: 800;
+        }
+
+        .remove-button {
+            padding: 7px 11px;
+
+            border: 1px solid #fecaca;
+
+            background: #fff1f2;
+
+            color: #dc2626;
+
+            border-radius: 7px;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           NOTICE
+        ========================= */
+
+        .notice {
+            padding: 15px 17px;
+
+            border-radius: 10px;
+
+            background: #fffbeb;
+
+            border:
+                1px solid #fde68a;
+
+            color: #92400e;
+
+            font-size: 12px;
+
+            line-height: 1.5;
+
+            margin-top: 18px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 750px) {
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: auto;
+            }
+
+            .topbar {
+                padding: 12px 15px;
+            }
+
+            .content {
+                padding: 25px 15px 45px;
+            }
+
+            .welcome h1 {
+                font-size: 27px;
+            }
+
+            .section {
+                padding: 21px;
+            }
+
+            .app-row {
+                align-items: flex-start;
+
+                flex-direction: column;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         LOGIN SCREEN
+    ========================== -->
+
+    <div
+        class="login-screen"
+        id="loginScreen">
+
+        <div class="login-card">
+
+            <div class="logo">
+                V
+            </div>
+
+            <h1>
+                VDT Apps Admin
+            </h1>
+
+            <p>
+                Private administration area
+            </p>
+
+
+            <input
+                type="password"
+                id="password"
+                class="input"
+                placeholder="Enter admin password"
+                autocomplete="off"
+            >
+
+
+            <button
+                class="login-button"
+                onclick="login()">
+
+                Enter Admin Panel
+
+            </button>
+
+
+            <div
+                class="error"
+                id="loginError">
+
+                Incorrect password.
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         ADMIN PANEL
+    ========================== -->
+
+    <div
+        class="admin-panel"
+        id="adminPanel">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div class="top-brand">
+
+                <div class="small-logo">
+                    V
+                </div>
+
+                <div>
+
+                    <h2>
+                        VDT Apps Admin
+                    </h2>
+
+                    <span>
+                        Private management area
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="logout-button"
+                onclick="logout()">
+
+                Logout
+
+            </button>
+
+        </header>
+
+
+
+        <!-- CONTENT -->
+
+        <main class="content">
+
+
+            <div class="welcome">
+
+                <h1>
+                    Admin Dashboard
+                </h1>
+
+                <p>
+                    Manage applications published
+                    on VDT Apps.
+                </p>
+
+            </div>
+
+
+
+            <!-- DASHBOARD -->
+
+            <div class="dashboard-grid">
+
+
+                <div class="dashboard-card">
+
+                    <div
+                        class="number"
+                        id="appCount">
+
+                        1
+
+                    </div>
+
+                    <div class="label">
+                        Published Apps
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-card">
+
+                    <div class="number">
+                        FREE
+                    </div>
+
+                    <div class="label">
+                        App Platform
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-card">
+
+                    <div class="number">
+                        ✓
+                    </div>
+
+                    <div class="label">
+                        Admin Access
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- UPLOAD -->
+
+            <section class="section">
+
+                <h2>
+                    Upload New App
+                </h2>
+
+                <p class="section-description">
+                    Add a new application to VDT Apps.
+                    All applications can be published for free.
+                </p>
+
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label>
+                            App Name
+                        </label>
+
+                        <input
+                            type="text"
+                            placeholder="Enter app name"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Developer
+                        </label>
+
+                        <input
+                            type="text"
+                            placeholder="Developer name"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Version
+                        </label>
+
+                        <input
+                            type="text"
+                            placeholder="Example: 1.0.0"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Category
+                        </label>
+
+                        <select>
+
+                            <option>
+                                Education
+                            </option>
+
+                            <option>
+                                Productivity
+                            </option>
+
+                            <option>
+                                Games
+                            </option>
+
+                            <option>
+                                Business
+                            </option>
+
+                            <option>
+                                Tools
+                            </option>
+
+                            <option>
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            App Description
+                        </label>
+
+                        <textarea
+                            placeholder="Describe the application..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            APK File
+                        </label>
+
+
+                        <div class="upload-area">
+
+                            <strong>
+                                Select Android APK
+                            </strong>
+
+                            <span>
+                                Choose the APK file from your device.
+                            </span>
+
+
+                            <input
+                                type="file"
+                                accept=".apk,application/vnd.android.package-archive"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <button
+                    class="publish-button"
+                    onclick="publishApp()">
+
+                    Publish App for FREE
+
+                </button>
+
+
+                <div class="notice">
+
+                    <strong>Testing version:</strong>
+                    This panel currently provides the admin
+                    interface only. A real secure upload system
+                    will need a server/backend or a protected
+                    storage service. GitHub Pages cannot securely
+                    upload files directly to the repository.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- PUBLISHED APPS -->
+
+            <section class="section">
+
+                <h2>
+                    Published Apps
+                </h2>
+
+                <p class="section-description">
+                    Applications currently displayed on
+                    the public VDT Apps website.
+                </p>
+
+
+                <div class="app-row">
+
+                    <div>
+
+                        <div class="app-name">
+                            Computer Science Skills
+                        </div>
+
+                        <div class="app-meta">
+                            Android • Version 1.0.0 • FREE
+                        </div>
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="status">
+                            PUBLISHED
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+
+    <script>
+
+        /*
+         * TEST ADMIN PASSWORD
+         *
+         * IMPORTANT:
+         * This is ONLY for testing.
+         * Because GitHub Pages is public,
+         * this password is NOT secure.
+         *
+         * Change it before testing if you want.
+         */
+
+        const ADMIN_PASSWORD = "VDTAdmin2026";
+
+
+        function login() {
+
+            const password =
+                document
+                .getElementById("password")
+                .value;
+
+            const error =
+                document
+                .getElementById("loginError");
+
+
+            if (password === ADMIN_PASSWORD) {
+
+                document
+                .getElementById("loginScreen")
+                .style.display = "none";
+
+
+                document
+                .getElementById("adminPanel")
+                .style.display = "block";
+
+
+                sessionStorage.setItem(
+                    "vdtAdminLogin",
+                    "true"
+                );
+
+            } else {
+
+                error.style.display = "block";
+
+            }
+
+        }
+
+
+        function logout() {
+
+            sessionStorage.removeItem(
+                "vdtAdminLogin"
+            );
+
+            document
+            .getElementById("adminPanel")
+            .style.display = "none";
+
+
+            document
+            .getElementById("loginScreen")
+            .style.display = "flex";
+
+
+            document
+            .getElementById("password")
+            .value = "";
+
+        }
+
+
+        function publishApp() {
+
+            alert(
+                "Testing mode: App information was accepted. A secure backend is required to actually upload and publish the APK."
+            );
+
+        }
+
+
+        /*
+         * Allow Enter key to login.
+         */
+
+        document
+        .getElementById("password")
+        .addEventListener(
+            "keydown",
+            function(event) {
+
+                if (event.key === "Enter") {
+
+                    login();
+
+                }
+
+            }
+        );
+
+
+        /*
+         * Restore login during the current browser session.
+         */
+
+        if (
+            sessionStorage.getItem(
+                "vdtAdminLogin"
+            ) === "true"
+        ) {
+
+            document
+            .getElementById("loginScreen")
+            .style.display = "none";
+
+
+            document
+            .getElementById("adminPanel")
+            .style.display = "block";
+
+        }
+
+    </script>
+
+
+</body>
+</html>
