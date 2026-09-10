@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VDT Apps | Learn • Explore • Grow</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #172b4d;
+    background: #ffffff;
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,0.96);
+    border-bottom: 1px solid #e8edf5;
+    backdrop-filter: blur(10px);
+}
+
+.navbar {
+    max-width: 1250px;
+    margin: auto;
+    min-height: 76px;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    min-width: 190px;
+}
+
+.logo-main {
+    font-size: 31px;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+}
+
+.logo-main span:nth-child(1) {
+    color: #1769ff;
+}
+
+.logo-main span:nth-child(2) {
+    color: #ef3d8f;
+}
+
+.logo-main span:nth-child(3) {
+    color: #f6a623;
+}
+
+.logo-main span:nth-child(4) {
+    color: #183153;
+}
+
+.logo-tagline {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #71809a;
+    margin-top: 5px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.nav-links a {
+    color: #263957;
+    transition: .2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #1473e6;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.icon-button {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid #e3eaf4;
+    background: #f8fbff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    cursor: pointer;
+}
+
+.cart {
+    position: relative;
+}
+
+.cart-badge {
+    position: absolute;
+    right: -2px;
+    top: -3px;
+    width: 18px;
+    height: 18px;
+    background: #ed345c;
+    color: white;
+    border-radius: 50%;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.login {
+    border: none;
+    background: transparent;
+    font-weight: 600;
+    color: #253956;
+    cursor: pointer;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    background:
+        radial-gradient(circle at 80% 30%, #ffe8f2 0, transparent 27%),
+        radial-gradient(circle at 20% 40%, #dff4ff 0, transparent 32%),
+        linear-gradient(135deg,#f7fbff,#ffffff 55%,#fff8fb);
+}
+
+.hero-container {
+    max-width: 1250px;
+    margin: auto;
+    min-height: 520px;
+    padding: 65px 30px 45px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-content h1 {
+    font-size: clamp(42px,5vw,68px);
+    line-height: 1.02;
+    letter-spacing: -2.5px;
+    color: #132b4f;
+    margin-bottom: 22px;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg,#1769ff,#d642ce,#ef477c);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero-content p {
+    max-width: 590px;
+    font-size: 18px;
+    color: #52627a;
+    margin-bottom: 27px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 13px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 24px;
+    border-radius: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: .2s;
+}
+
+.btn-primary {
+    background: #087cf5;
+    color: white;
+    box-shadow: 0 8px 22px rgba(8,124,245,.2);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    background: #006ce0;
+}
+
+.btn-outline {
+    background: white;
+    border: 2px solid #8063ff;
+    color: #6346db;
+}
+
+.btn-outline:hover {
+    transform: translateY(-2px);
+}
+
+.benefits-mini {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 23px;
+    margin-top: 31px;
+}
+
+.mini-benefit {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #465875;
+}
+
+.mini-icon {
+    font-size: 21px;
+}
+
+.hero-visual {
+    position: relative;
+    min-height: 410px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.person-card {
+    width: 410px;
+    height: 360px;
+    max-width: 90%;
+    border-radius: 35px;
+    background:
+        linear-gradient(145deg,#dff5ff,#fff0f7);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(30,80,130,.14);
+}
+
+.person {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    height: 310px;
+}
+
+.head {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 112px;
+    height: 126px;
+    background: #d99573;
+    border-radius: 50% 50% 46% 46%;
+    z-index: 3;
+}
+
+.hair {
+    position: absolute;
+    top: 0;
+    left: 44px;
+    width: 130px;
+    height: 150px;
+    background: #493125;
+    border-radius: 55% 55% 45% 45%;
+    z-index: 4;
+}
+
+.face {
+    position: absolute;
+    top: 53px;
+    left: 67px;
+    z-index: 6;
+    font-size: 27px;
+}
+
+.body {
+    position: absolute;
+    top: 125px;
+    left: 30px;
+    width: 165px;
+    height: 190px;
+    background: #f28a9e;
+    border-radius: 75px 75px 20px 20px;
+    z-index: 1;
+}
+
+.tablet {
+    position: absolute;
+    width: 225px;
+    height: 145px;
+    background: #4a5362;
+    border-radius: 13px;
+    left: 50%;
+    bottom: 45px;
+    transform: translateX(-50%) rotate(-2deg);
+    z-index: 8;
+    box-shadow: 0 10px 25px rgba(0,0,0,.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tablet-screen {
+    width: 205px;
+    height: 123px;
+    background: linear-gradient(135deg,#182a43,#3b5c84);
+    border-radius: 8px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.floating-label {
+    position: absolute;
+    padding: 12px 17px;
+    border-radius: 14px;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    box-shadow: 0 9px 20px rgba(0,0,0,.12);
+}
+
+.label-one {
+    right: -3px;
+    top: 20px;
+    background: #27bd6b;
+}
+
+.label-two {
+    right: -18px;
+    top: 88px;
+    background: #ef4f8a;
+}
+
+.label-three {
+    right: -25px;
+    top: 157px;
+    background: #f5a11c;
+}
+
+.label-four {
+    left: 0;
+    top: 72px;
+    background: #6951dc;
+}
+
+.hand-note {
+    position: absolute;
+    left: 5px;
+    top: 15px;
+    font-family: cursive;
+    font-size: 18px;
+    color: #42658a;
+    transform: rotate(-8deg);
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.section {
+    max-width: 1250px;
+    margin: auto;
+    padding: 48px 24px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.section-heading h2 {
+    font-size: 28px;
+    letter-spacing: -.6px;
+}
+
+.section-heading a {
+    color: #087cf5;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+/* =========================
+   CATEGORIES
+========================= */
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    gap: 14px;
+}
+
+.category {
+    min-height: 105px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 700;
+    font-size: 13px;
+    transition: .2s;
+}
+
+.category:hover {
+    transform: translateY(-4px);
+}
+
+.category-icon {
+    font-size: 31px;
+    margin-bottom: 7px;
+}
+
+.cat1 { background:#eee4ff; color:#6d42d7; }
+.cat2 { background:#dff4ff; color:#1785df; }
+.cat3 { background:#ffe4ed; color:#e84d7e; }
+.cat4 { background:#e2f8e8; color:#1ca653; }
+.cat5 { background:#fff1c9; color:#e89716; }
+.cat6 { background:#eee5ff; color:#774be0; }
+.cat7 { background:#e0f5fb; color:#099ac3; }
+
+/* =========================
+   APPS
+========================= */
+
+.apps-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+.app-card {
+    background: white;
+    border: 1px solid #e7edf5;
+    border-radius: 18px;
+    padding: 21px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(34,64,100,.06);
+    transition: .2s;
+}
+
+.app-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 32px rgba(34,64,100,.12);
+}
+
+.app-icon {
+    width: 82px;
+    height: 82px;
+    margin: 0 auto 14px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 43px;
+}
+
+.app-card h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+    color: #172f51;
+}
+
+.app-card p {
+    color: #66758b;
+    font-size: 13px;
+    min-height: 42px;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: 800;
+    color: #e52f65;
+    margin: 12px 0;
+}
+
+.free {
+    color: #16a45c;
+}
+
+.small-btn {
+    width: 100%;
+    min-height: 42px;
+    border: none;
+    border-radius: 9px;
+    background: #087cf5;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* App icons */
+.english { background:#fff0ae; }
+.math { background:#d9efff; }
+.gk { background:#dff7e7; }
+.cs { background:#d8efff; }
+.news { background:#ffe6bc; }
+.office { background:#dff1df; }
+
+/* =========================
+   TRUST STRIP
+========================= */
+
+.trust {
+    max-width: 1180px;
+    margin: 10px auto 55px;
+    padding: 23px;
+    background: #f5faff;
+    border: 1px solid #e5effa;
+    border-radius: 17px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.trust-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #087cf5;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.trust-item strong {
+    display: block;
+    font-size: 13px;
+}
+
+.trust-item span {
+    color: #738197;
+    font-size: 11px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #122e50;
+    color: white;
+}
+
+.footer-main {
+    max-width: 1250px;
+    margin: auto;
+    padding: 50px 24px 35px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.4fr;
+    gap: 40px;
+}
+
+.footer-logo {
+    font-size: 29px;
+    font-weight: 900;
+    margin-bottom: 9px;
+}
+
+.footer-about {
+    color: #b9c7d9;
+    font-size: 13px;
+    max-width: 300px;
+}
+
+.footer-column h4 {
+    margin-bottom: 14px;
+    font-size: 15px;
+}
+
+.footer-column a {
+    display: block;
+    color: #c4d0df;
+    font-size: 13px;
+    margin-bottom: 9px;
+}
+
+.footer-column a:hover {
+    color: white;
+}
+
+.socials {
+    display: flex;
+    gap: 9px;
+    margin: 13px 0;
+}
+
+.social {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: rgba(255,255,255,.13);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.newsletter {
+    display: flex;
+    margin-top: 10px;
+}
+
+.newsletter input {
+    min-width: 0;
+    width: 100%;
+    padding: 11px;
+    border: none;
+    outline: none;
+    border-radius: 8px 0 0 8px;
+}
+
+.newsletter button {
+    border: none;
+    padding: 0 14px;
+    background: #087cf5;
+    color: white;
+    border-radius: 0 8px 8px 0;
+    font-weight: 700;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.13);
+    padding: 17px 24px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1250px;
+    margin: auto;
+    color: #aebed2;
+    font-size: 12px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:1000px) {
+
+    .nav-links {
+        display:none;
+    }
+
+    .hero-container {
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .hero-content p {
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .hero-buttons,
+    .benefits-mini {
+        justify-content:center;
+    }
+
+    .categories {
+        grid-template-columns:repeat(4,1fr);
+    }
+
+    .apps-grid {
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .trust {
+        grid-template-columns:repeat(2,1fr);
+        margin-left:20px;
+        margin-right:20px;
+    }
+
+    .footer-main {
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px) {
+
+    .navbar {
+        padding:10px 15px;
+    }
+
+    .logo-main {
+        font-size:25px;
+    }
+
+    .logo-tagline {
+        font-size:8px;
+    }
+
+    .login {
+        display:none;
+    }
+
+    .hero-container {
+        padding:45px 18px 35px;
+    }
+
+    .hero-content h1 {
+        font-size:43px;
+    }
+
+    .hero-content p {
+        font-size:16px;
+    }
+
+    .hero-visual {
+        min-height:350px;
+    }
+
+    .person-card {
+        width:340px;
+        height:310px;
+    }
+
+    .floating-label {
+        font-size:11px;
+        padding:9px 11px;
+    }
+
+    .label-one {
+        right:0;
+    }
+
+    .label-two {
+        right:-5px;
+    }
+
+    .label-three {
+        right:-8px;
+    }
+
+    .section {
+        padding:35px 15px;
+    }
+
+    .section-heading h2 {
+        font-size:23px;
+    }
+
+    .categories {
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .apps-grid {
+        grid-template-columns:1fr;
+    }
+
+    .trust {
+        grid-template-columns:1fr;
+        margin:0 15px 35px;
+    }
+
+    .footer-main {
+        grid-template-columns:1fr;
+        padding:40px 20px 25px;
+    }
+
+    .footer-bottom {
+        flex-direction:column;
+        padding:17px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+
+        <a href="#" class="logo">
+            <div class="logo-main">
+                <span>V</span><span>D</span><span>T</span> <span>Apps</span>
+            </div>
+            <div class="logo-tagline">Learn • Explore • Grow</div>
+        </a>
+
+        <div class="nav-links">
+            <a href="#" class="active">Home</a>
+            <a href="#apps">Our Apps</a>
+            <a href="#categories">Categories</a>
+            <a href="#about">About</a>
+            <a href="#support">Support</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <div class="nav-actions">
+            <button class="icon-button">⌕</button>
+
+            <button class="icon-button cart">
+                🛒
+                <span class="cart-badge">0</span>
+            </button>
+
+            <button class="login">♙ &nbsp; Login</button>
+        </div>
+
+    </nav>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-container">
+
+    <div class="hero-content">
+
+        <h1>
+            Smart Apps<br>
+            for a <span class="gradient-text">Brighter<br>Tomorrow</span>
+        </h1>
+
+        <p>
+            Educational, productivity and learning apps for all age groups.
+            Designed with care by VDT Apps.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#apps" class="btn btn-primary">
+                Explore Our Apps&nbsp; →
+            </a>
+
+            <a href="#about" class="btn btn-outline">
+                About VDT Apps
+            </a>
+        </div>
+
+        <div class="benefits-mini">
+
+            <div class="mini-benefit">
+                <span class="mini-icon">🛡️</span>
+                Safe & Secure<br>Downloads
+            </div>
+
+            <div class="mini-benefit">
+                <span class="mini-icon">⭐</span>
+                High Quality<br>Applications
+            </div>
+
+            <div class="mini-benefit">
+                <span class="mini-icon">👥</span>
+                Trusted<br>Applications
+            </div>
+
+            <div class="mini-benefit">
+                <span class="mini-icon">❤️</span>
+                Learn, Grow<br>and Achieve
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-visual">
+
+        <div class="person-card">
+
+            <div class="hand-note">
+                Learning<br>made fun! ♡
+            </div>
+
+            <div class="person">
+
+                <div class="hair"></div>
+                <div class="head"></div>
+                <div class="face">😊</div>
+
+                <div class="body"></div>
+
+                <div class="tablet">
+                    <div class="tablet-screen">
+                        VDT<br>Apps
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="floating-label label-one">
+                🎓 Education
+            </div>
+
+            <div class="floating-label label-two">
+                ⚙️ Productivity
+            </div>
+
+            <div class="floating-label label-three">
+                😊 Kids Learning
+            </div>
+
+            <div class="floating-label label-four">
+                📈 Personal Growth
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- CATEGORIES -->
+
+<section class="section" id="categories">
+
+<div class="section-heading">
+    <h2>Browse by Category</h2>
+    <a href="#">View All Categories →</a>
+</div>
+
+<div class="categories">
+
+    <a class="category cat1" href="#">
+        <div class="category-icon">🎓</div>
+        Education
+    </a>
+
+    <a class="category cat2" href="#">
+        <div class="category-icon">🧠</div>
+        Skill Development
+    </a>
+
+    <a class="category cat3" href="#">
+        <div class="category-icon">🎮</div>
+        Kids Apps
+    </a>
+
+    <a class="category cat4" href="#">
+        <div class="category-icon">💼</div>
+        Productivity
+    </a>
+
+    <a class="category cat5" href="#">
+        <div class="category-icon">🎨</div>
+        Creativity
+    </a>
+
+    <a class="category cat6" href="#">
+        <div class="category-icon">❤️</div>
+        Personal Growth
+    </a>
+
+    <a class="category cat7" href="#">
+        <div class="category-icon">▦</div>
+        All Apps
+    </a>
+
+</div>
+
+</section>
+
+
+<!-- FEATURED APPS -->
+
+<section class="section" id="apps">
+
+<div class="section-heading">
+    <h2>Featured Apps</h2>
+    <a href="#">View All Apps →</a>
+</div>
+
+<div class="apps-grid">
+
+    <div class="app-card">
+
+        <div class="app-icon english">📚</div>
+
+        <h3>Your Personal English Teacher</h3>
+
+        <p>
+            Learn English with interactive lessons.
+        </p>
+
+        <div class="price">₹199</div>
+
+        <button class="small-btn">
+            View Details
+        </button>
+
+    </div>
+
+
+    <div class="app-card">
+
+        <div class="app-icon math">➕</div>
+
+        <h3>Kids Math Learning</h3>
+
+        <p>
+            Fun and easy mathematics learning for kids.
+        </p>
+
+        <div class="price">₹149</div>
+
+        <button class="small-btn">
+            View Details
+        </button>
+
+    </div>
+
+
+    <div class="app-card">
+
+        <div class="app-icon gk">💡</div>
+
+        <h3>General Knowledge for Kids</h3>
+
+        <p>
+            Daily GK questions and quizzes.
+        </p>
+
+        <div class="price">₹149</div>
+
+        <button class="small-btn">
+            View Details
+        </button>
+
+    </div>
+
+
+    <div class="app-card">
+
+        <div class="app-icon cs">💻</div>
+
+        <h3>Computer Science Skills</h3>
+
+        <p>
+            Learn computer skills step by step.
+        </p>
+
+        <div class="price">₹199</div>
+
+        <button class="small-btn">
+            View Details
+        </button>
+
+    </div>
+
+
+    <div class="app-card">
+
+        <div class="app-icon news">📰</div>
+
+        <h3>Daily News Reader</h3>
+
+        <p>
+            Listen to today's news in multiple languages.
+        </p>
+
+        <div class="price">₹149</div>
+
+        <button class="small-btn">
+            View Details
+        </button>
+
+    </div>
+
+
+    <div class="app-card">
+
+        <div class="app-icon office">📊</div>
+
+        <h3>OfficeFlow</h3>
+
+        <p>
+            A simple office suite for everyone.
+        </p>
+
+        <div class="price">₹249</div>
+
+        <button class="small-btn">
+            View Details
+        </button>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- TRUST -->
+
+<div class="trust">
+
+    <div class="trust-item">
+        <div class="trust-icon">↓</div>
+        <div>
+            <strong>Instant Download</strong>
+            <span>Get your apps quickly after purchase.</span>
+        </div>
+    </div>
+
+    <div class="trust-item">
+        <div class="trust-icon">🔒</div>
+        <div>
+            <strong>Secure Payments</strong>
+            <span>Safe and trusted payment options.</span>
+        </div>
+    </div>
+
+    <div class="trust-item">
+        <div class="trust-icon">🎧</div>
+        <div>
+            <strong>Dedicated Support</strong>
+            <span>We are here to help you.</span>
+        </div>
+    </div>
+
+    <div class="trust-item">
+        <div class="trust-icon">★</div>
+        <div>
+            <strong>Satisfaction Guaranteed</strong>
+            <span>Quality apps you can trust.</span>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-main">
+
+    <div>
+        <div class="footer-logo">VDT Apps</div>
+
+        <p class="footer-about">
+            Creating simple, useful and innovative applications
+            for a smarter and brighter future.
+        </p>
+    </div>
+
+
+    <div class="footer-column">
+
+        <h4>Quick Links</h4>
+
+        <a href="#">Home</a>
+        <a href="#apps">Our Apps</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+
+    </div>
+
+
+    <div class="footer-column" id="support">
+
+        <h4>Support</h4>
+
+        <a href="#">Help Center</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Refund Policy</a>
+
+    </div>
+
+
+    <div class="footer-column" id="contact">
+
+        <h4>Follow Us</h4>
+
+        <div class="socials">
+
+            <a class="social" href="#">▶</a>
+            <a class="social" href="#">f</a>
+            <a class="social" href="#">◎</a>
+            <a class="social" href="#">in</a>
+
+        </div>
+
+        <h4>Subscribe to Updates</h4>
+
+        <div class="newsletter">
+            <input type="email" placeholder="Your email address">
+            <button>Subscribe</button>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+    <span>
+        © 2026 VDT Apps. All rights reserved.
+    </span>
+
+    <span>
+        Made with ❤️ for a brighter tomorrow.
+    </span>
+
+</div>
+
+</footer>
+
+
+</body>
+  </html>
